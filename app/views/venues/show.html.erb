@@ -23,6 +23,49 @@
           </li>
           <%end%>
 
+          <li class="list-group-item">
+            <form action="/create_favorite" method="post">
+              <!-- Hidden input for authenticity token to protect from forgery -->
+              <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+              <!-- Label and input for Name -->
+              <div class="form-group">
+                <label for="user" class="control-label">
+                  User
+                </label>
+                <input type="text" id="user" name="user" placeholder="User" class="form-control" value="<%= @favorites.user %>">
+              </div>
+
+              <!-- Label and input for dish -->
+              <div class="form-group">
+                <label for="dish" class="control-label">
+                  Dish
+                </label>
+                <input type="text" id="dish" name="dish" placeholder="Dish" class="form-control" value="<%= @favorites.dish %>">
+              </div>
+
+              <!-- Label and input for notes -->
+              <div class="form-group">
+                <label for="notes" class="control-label">
+                  Notes
+                </label>
+                <input type="text" id="notes" name="notes" placeholder="Notes" class="form-control" value="<%= @favorites.notes %>">
+              </div>
+
+              <!-- Label and input for venue_id -->
+              <input name="venue_id" type="hidden" value="<%= @venue.id %>">
+
+              <button class="btn btn-success">
+                Create favorite
+              </button>
+
+            </form>
+          </li>
+
+
+
+
+
     </dl>
 
     <div class="btn-group btn-group-justified">
