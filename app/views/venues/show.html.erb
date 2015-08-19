@@ -28,28 +28,30 @@
               <!-- Hidden input for authenticity token to protect from forgery -->
               <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
 
-              <!-- Label and input for Name -->
-              <div class="form-group">
-                <label for="user" class="control-label">
-                  User
-                </label>
-                <input type="text" id="user" name="user" placeholder="User" class="form-control" value="<%= @favorites.user %>">
-              </div>
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+        <%=select_tag(:user_id, options_from_collection_for_select(User.all, :id, :username, @favorite.user_id), :class => "form-control") %>
+        <value="<%= @favorite.user_id %>>
 
-              <!-- Label and input for dish -->
-              <div class="form-group">
-                <label for="dish" class="control-label">
-                  Dish
-                </label>
-                <input type="text" id="dish" name="dish" placeholder="Dish" class="form-control" value="<%= @favorites.dish %>">
-              </div>
+      </div>
+
+      <!-- Label and input for dish_id -->
+      <div class="form-group">
+        <label for="dish_id" class="control-label">
+          Dish
+        </label>
+        <%=select_tag(:dish_id, options_from_collection_for_select(Dish.all, :id, :name, @favorite.dish_id), :class => "form-control") %>
+        <value="<%= @favorite.dish_id %>>
 
               <!-- Label and input for notes -->
               <div class="form-group">
                 <label for="notes" class="control-label">
                   Notes
                 </label>
-                <input type="text" id="notes" name="notes" placeholder="Notes" class="form-control" value="<%= @favorites.notes %>">
+                <input type="text" id="notes" name="notes" placeholder="Notes" class="form-control" value="<%= @favorite.notes %>">
               </div>
 
               <!-- Label and input for venue_id -->
